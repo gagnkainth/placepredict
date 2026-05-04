@@ -1,0 +1,37 @@
+{
+    "igagankainth@gmail.com": {
+        "first_name": "Gagan",
+        "last_name": "deep",
+        "email": "igagankainth@gmail.com",
+        "phone": "+917719603961",
+        "college": "GNA",
+        "branch": "CSE",
+        "year": "1st Year",
+        "cgpa": 7.0,
+        "password": "291786c70d7558ee44c14ed41afa677055fc6f7fa5ca9ee76af269d3ae6d4630",
+        "predictions": [
+            {
+                "timestamp": "2026-05-04 12:43:01",
+                "input_data": {
+                    "CGPA": 7.0,
+                    "10th Percentage": "Below 70%",
+                    "12th / Diploma Percentage": "Below 70%",
+                    "Any Active Backlogs?": "No",
+                    "Coding Skill Level": "Beginner",
+                    "Data Structures & Algorithms Knowledge": "Basic",
+                    "Aptitude / Logical Reasoning Skill": "Low",
+                    "Number of Internships Completed": 1,
+                    "Number of Academic / Personal Projects": 1,
+                    "Hackathons / Coding Competitions Participated": "No",
+                    "Technical Certifications Completed": "No",
+                    "Communication Skills": 3,
+                    "Confidence Level for Interviews": 3,
+                    "Programming Languages Known": 2,
+                    "Willing to Improve Skills Based on Feedback?": "Yes"
+                },
+                "prediction": 0,
+                "confidence": 0.4403492222496114
+            }
+        ]
+    }
+}
