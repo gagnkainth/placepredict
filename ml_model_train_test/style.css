@@ -54,6 +54,7 @@ html, body, [class*="css"] {
     color: #1e3a8a;
     margin-bottom: 1rem;
     line-height: 1.2;
+    text-align: left;
 }
 
 .hero-subtext {
@@ -61,6 +62,7 @@ html, body, [class*="css"] {
     color: #475569;
     margin-bottom: 2rem;
     font-weight: 600;
+    text-align: left;
 }
 
 /* Glassmorphism Feature Boxes */
@@ -229,112 +231,31 @@ html, body, [class*="css"] {
 }
 
 /* Mobile Responsiveness */
-@media screen and (min-width: 769px) {
-    /* Hide mobile elements on desktop */
-    div.element-container:has(.mobile-nav-marker),
-    div.element-container:has(.mobile-nav-marker) + div.element-container,
-    div.element-container:has(.mobile-menu-marker),
-    div.element-container:has(.mobile-menu-marker) + div.element-container {
-        display: none !important;
-    }
-}
-
 @media screen and (max-width: 768px) {
-    /* Hide desktop elements on mobile */
-    div.element-container:has(.desktop-nav-marker),
-    div.element-container:has(.desktop-nav-marker) + div.element-container {
-        display: none !important;
-    }
-    
-    /* Make mobile navbar layout flex row */
-    div.element-container:has(.mobile-nav-marker) + div.element-container div[data-testid="stHorizontalBlock"],
-    div.element-container:has(.mobile-nav-marker) + div.element-container div[data-testid="stColumns"] {
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-    }
-    div.element-container:has(.mobile-nav-marker) + div.element-container div[data-testid="column"] {
-        width: auto !important;
-        flex: 0 1 auto !important;
-        min-width: 0 !important;
-    }
-    div.element-container:has(.mobile-nav-marker) + div.element-container div[data-testid="column"]:first-child {
-        flex: 1 1 auto !important;
-        margin-bottom: 0 !important;
-    }
-    
-    /* Style the hamburger button (Transparent like Gagan DevStudio) */
-    div.element-container:has(.mobile-nav-marker) + div.element-container .stButton>button {
+    .hero-text {
         font-size: 2.2rem !important;
-        padding: 0 !important;
-        background: transparent !important;
-        color: #0f172a !important;
-        border: none !important;
-        box-shadow: none !important;
-        min-height: 0 !important;
-        width: auto !important;
     }
-    
-    /* Style the mobile menu items container */
-    div.element-container:has(.mobile-menu-marker) + div.element-container {
-        background-color: #ffffff;
-        border-radius: 12px;
-        padding: 1rem;
-        margin-top: -0.5rem;
-        margin-bottom: 1.5rem;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        border: 1px solid #f1f5f9;
-    }
-    
-    div.element-container:has(.mobile-menu-marker) + div.element-container .stButton>button {
-        justify-content: flex-start !important;
-        padding: 0.8rem 1rem !important;
-        font-size: 1.1rem !important;
-        margin-bottom: 0.5rem;
-        background: #f8fafc !important;
-        border-radius: 8px !important;
-    }
-
-    .mobile-hero-title {
-        font-size: 2.4rem !important;
-    }
-    .mobile-hero-subtext {
+    .hero-subtext {
         font-size: 1rem !important;
+        margin-bottom: 1.5rem !important;
     }
-    
-    /* Stack hero buttons on mobile */
-    div.element-container:has(.hero-buttons) + div.element-container div[data-testid="stColumns"] {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 0.8rem !important;
+    .feature-box {
+        height: auto !important;
+        min-height: auto !important;
+        padding: 1.5rem !important;
     }
-    div.element-container:has(.hero-buttons) + div.element-container div[data-testid="column"] {
-        width: 100% !important;
+    .metric-box {
+        height: auto !important;
+        padding: 1rem !important;
     }
-}
-
-/* Style the Hero Buttons as pills */
-div.element-container:has(.hero-buttons) + div.element-container .stButton>button {
-    border-radius: 50px !important;
-    padding: 0.8rem 2rem !important;
-    font-weight: 700 !important;
-    transition: all 0.3s ease !important;
-    text-transform: none !important;
-}
-
-/* Primary Hero Button (Solid Blue) */
-div.element-container:has(.hero-buttons) + div.element-container button[data-testid="baseButton-primary"] {
-    background-color: #0066ff !important;
-    color: #ffffff !important;
-    border: none !important;
-    box-shadow: 0 4px 14px 0 rgba(0, 118, 255, 0.39) !important;
-}
-
-/* Secondary Hero Button (White with border) */
-div.element-container:has(.hero-buttons) + div.element-container button[data-testid="baseButton-secondary"] {
-    background-color: #ffffff !important;
-    color: #0f172a !important;
-    border: 1px solid #cbd5e1 !important;
+    .metric-value {
+        font-size: 2rem !important;
+    }
+    .signup-form {
+        padding: 1.5rem !important;
+    }
+    .eda-step-title {
+        font-size: 1.1rem !important;
+    }
 }
 

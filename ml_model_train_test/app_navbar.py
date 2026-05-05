@@ -55,83 +55,44 @@ def close_menu():
 # NAVBAR NAVIGATION
 # ============================================
 
-# 1. Desktop Navbar
-st.markdown("<div class='desktop-nav-marker'></div>", unsafe_allow_html=True)
 if not st.session_state.logged_in:
     col_logo, col_empty, col1, col2, col3, col4 = st.columns([2, 4, 1, 1, 1, 1.5])
     with col_logo:
         st.markdown("<h3 class='navbar-logo' style='color: #1e3a8a; font-weight: 800; margin: 0; padding-top: 5px;'>🎓 PlacePredict</h3>", unsafe_allow_html=True)
     with col1:
-        if st.button("🏠 Home", width="stretch", key="nav_home_d"):
+        if st.button("🏠 Home", width="stretch", key="nav_home"):
             st.session_state.page = 'Home'
     with col2:
-        if st.button("📊 EDA", width="stretch", key="nav_eda_d"):
+        if st.button("📊 EDA", width="stretch", key="nav_eda"):
             st.session_state.page = 'EDA'
     with col3:
-        if st.button("🎓 Predict", width="stretch", key="nav_predict_d"):
+        if st.button("🎓 Predict", width="stretch", key="nav_predict"):
             st.session_state.page = 'Predict'
     with col4:
-        if st.button("🔑 Login / Sign Up", width="stretch", key="nav_login_d"):
+        if st.button("🔑 Login / Sign Up", width="stretch", key="nav_login"):
             st.session_state.page = 'Login'
 else:
     col_logo, col_empty, col1, col2, col3, col4, col5 = st.columns([2, 3, 1, 1, 1, 1.5, 1])
     with col_logo:
         st.markdown("<h3 class='navbar-logo' style='color: #1e3a8a; font-weight: 800; margin: 0; padding-top: 5px;'>🎓 PlacePredict</h3>", unsafe_allow_html=True)
     with col1:
-        if st.button("🏠 Home", width="stretch", key="nav_home_in_d"):
+        if st.button("🏠 Home", width="stretch", key="nav_home_in"):
             st.session_state.page = 'Home'
     with col2:
-        if st.button("📊 EDA", width="stretch", key="nav_eda_in_d"):
+        if st.button("📊 EDA", width="stretch", key="nav_eda_in"):
             st.session_state.page = 'EDA'
     with col3:
-        if st.button("🎓 Predict", width="stretch", key="nav_predict_in_d"):
+        if st.button("🎓 Predict", width="stretch", key="nav_predict_in"):
             st.session_state.page = 'Predict'
     with col4:
-        if st.button("👤 User Profile", width="stretch", key="nav_profile_d"):
+        if st.button("👤 User Profile", width="stretch", key="nav_profile"):
             st.session_state.page = 'Dashboard'
     with col5:
-        if st.button("🚪 Logout", width="stretch", key="nav_logout_d"):
+        if st.button("🚪 Logout", width="stretch", key="nav_logout"):
             st.session_state.logged_in = False
             st.session_state.current_user = None
             st.session_state.page = 'Home'
             st.rerun()
-
-# 2. Mobile Navbar Header
-st.markdown("<div class='mobile-nav-marker'></div>", unsafe_allow_html=True)
-col_mob_logo, col_mob_burger = st.columns([4, 1])
-with col_mob_logo:
-    st.markdown("<h3 class='navbar-logo' style='color: #1e3a8a; font-weight: 800; margin: 0; padding-top: 5px;'>🎓 PlacePredict</h3>", unsafe_allow_html=True)
-with col_mob_burger:
-    st.button("☰", key="burger_btn", on_click=toggle_menu)
-
-# 3. Mobile Menu Items
-if st.session_state.mobile_menu_open:
-    st.markdown("<div class='mobile-menu-marker'></div>", unsafe_allow_html=True)
-    with st.container():
-        if not st.session_state.logged_in:
-            if st.button("🏠 Home", width="stretch", key="nav_home_m", on_click=close_menu):
-                st.session_state.page = 'Home'
-            if st.button("📊 EDA", width="stretch", key="nav_eda_m", on_click=close_menu):
-                st.session_state.page = 'EDA'
-            if st.button("🎓 Predict", width="stretch", key="nav_predict_m", on_click=close_menu):
-                st.session_state.page = 'Predict'
-            if st.button("🔑 Login / Sign Up", width="stretch", key="nav_login_m", on_click=close_menu):
-                st.session_state.page = 'Login'
-        else:
-            if st.button("🏠 Home", width="stretch", key="nav_home_in_m", on_click=close_menu):
-                st.session_state.page = 'Home'
-            if st.button("📊 EDA", width="stretch", key="nav_eda_in_m", on_click=close_menu):
-                st.session_state.page = 'EDA'
-            if st.button("🎓 Predict", width="stretch", key="nav_predict_in_m", on_click=close_menu):
-                st.session_state.page = 'Predict'
-            if st.button("👤 User Profile", width="stretch", key="nav_profile_m", on_click=close_menu):
-                st.session_state.page = 'Dashboard'
-            if st.button("🚪 Logout", width="stretch", key="nav_logout_m"):
-                st.session_state.logged_in = False
-                st.session_state.current_user = None
-                st.session_state.page = 'Home'
-                st.session_state.mobile_menu_open = False
-                st.rerun()
 
 st.divider()
 
@@ -141,37 +102,30 @@ st.divider()
 if st.session_state.page == 'Home':
     st.write("") # Top spacing
     
-    # Hero Title like Gagan's DevStudio
-    st.markdown("""
-        <div style="text-align: center; margin-top: 2rem; margin-bottom: 1.5rem;">
-            <h1 style="font-size: 3.5rem; font-weight: 800; line-height: 1.1; color: #0f172a; margin-bottom: 1rem;" class="mobile-hero-title">
-                AI-Powered Placement<br>Predictions that are<br><span style="color: #0066ff;">accurate</span>
-            </h1>
-            <p style="font-size: 1.1rem; color: #475569; max-width: 600px; margin: 0 auto 2rem auto; line-height: 1.6;" class="mobile-hero-subtext">
-                Understanding your employability before interview season begins is crucial. 
-                Get a realistic assessment of your placement chances with our advanced SVM model.
-            </p>
-        </div>
-    """, unsafe_allow_html=True)
+    col_text, col_img = st.columns([1.2, 1], gap="large")
     
-    st.markdown("<div class='hero-buttons'></div>", unsafe_allow_html=True)
-    # Hero Buttons (Centered, like reference)
-    btn_col1, btn_col2, btn_col3, btn_col4 = st.columns([1, 1.5, 1.5, 1])
-    with btn_col2:
-        if st.button("Explore Data 📊", width='stretch', key="btn_eda_hero"):
-            st.session_state.page = 'EDA'
-            st.rerun()
-    with btn_col3:
-        if st.button("Predict Now 🎓", width='stretch', type="primary", key="btn_predict_hero"):
-            st.session_state.page = 'Predict'
-            st.rerun()
-            
-    st.write("")
-    st.write("")
-    
-    # Hero Image below text (like reference map)
-    img_col1, img_col2, img_col3 = st.columns([1, 3, 1])
-    with img_col2:
+    with col_text:
+        st.markdown('<div class="hero-text" style="text-align: left; margin-bottom: 0;">🎓 PlacePredict</div>', unsafe_allow_html=True)
+        st.markdown('<div class="hero-subtext" style="text-align: left; margin-top: 0.5rem; margin-bottom: 2rem;">AI-Powered Placement Prediction & Analysis</div>', unsafe_allow_html=True)
+        
+        st.write("""
+        ### Why Placement Prediction Matters 🎯
+        
+        Understanding your employability before interview season begins is crucial. 
+        Get a realistic assessment of your placement chances with our advanced SVM model.
+        """)
+        
+        col_btn1, col_btn2 = st.columns(2)
+        with col_btn1:
+            if st.button("Explore Data 📊", width='stretch', key="btn_eda_hero"):
+                st.session_state.page = 'EDA'
+                st.rerun()
+        with col_btn2:
+            if st.button("Predict Now 🎓", width='stretch', type="primary", key="btn_predict_hero"):
+                st.session_state.page = 'Predict'
+                st.rerun()
+        
+    with col_img:
         hero_jpg = os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "hero.jpg")
         hero_png = os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "hero.png")
         if os.path.exists(hero_jpg):
