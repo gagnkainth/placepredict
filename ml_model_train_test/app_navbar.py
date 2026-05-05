@@ -42,47 +42,96 @@ if 'logged_in' not in st.session_state:
 if 'current_user' not in st.session_state:
     st.session_state.current_user = None
 
+if 'mobile_menu_open' not in st.session_state:
+    st.session_state.mobile_menu_open = False
+
+def toggle_menu():
+    st.session_state.mobile_menu_open = not st.session_state.mobile_menu_open
+
+def close_menu():
+    st.session_state.mobile_menu_open = False
+
 # ============================================
 # NAVBAR NAVIGATION
 # ============================================
+
+# 1. Desktop Navbar
+st.markdown("<div class='desktop-nav-marker'></div>", unsafe_allow_html=True)
 if not st.session_state.logged_in:
     col_logo, col_empty, col1, col2, col3, col4 = st.columns([2, 4, 1, 1, 1, 1.5])
     with col_logo:
         st.markdown("<h3 class='navbar-logo' style='color: #1e3a8a; font-weight: 800; margin: 0; padding-top: 5px;'>🎓 PlacePredict</h3>", unsafe_allow_html=True)
     with col1:
-        if st.button("🏠 Home", width="stretch", key="nav_home"):
+        if st.button("🏠 Home", width="stretch", key="nav_home_d"):
             st.session_state.page = 'Home'
     with col2:
-        if st.button("📊 EDA", width="stretch", key="nav_eda"):
+        if st.button("📊 EDA", width="stretch", key="nav_eda_d"):
             st.session_state.page = 'EDA'
     with col3:
-        if st.button("🎓 Predict", width="stretch", key="nav_predict"):
+        if st.button("🎓 Predict", width="stretch", key="nav_predict_d"):
             st.session_state.page = 'Predict'
     with col4:
-        if st.button("🔑 Login / Sign Up", width="stretch", key="nav_login_signup"):
+        if st.button("🔑 Login / Sign Up", width="stretch", key="nav_login_d"):
             st.session_state.page = 'Login'
 else:
     col_logo, col_empty, col1, col2, col3, col4, col5 = st.columns([2, 3, 1, 1, 1, 1.5, 1])
     with col_logo:
         st.markdown("<h3 class='navbar-logo' style='color: #1e3a8a; font-weight: 800; margin: 0; padding-top: 5px;'>🎓 PlacePredict</h3>", unsafe_allow_html=True)
     with col1:
-        if st.button("🏠 Home", width="stretch", key="nav_home_in"):
+        if st.button("🏠 Home", width="stretch", key="nav_home_in_d"):
             st.session_state.page = 'Home'
     with col2:
-        if st.button("📊 EDA", width="stretch", key="nav_eda_in"):
+        if st.button("📊 EDA", width="stretch", key="nav_eda_in_d"):
             st.session_state.page = 'EDA'
     with col3:
-        if st.button("🎓 Predict", width="stretch", key="nav_predict_in"):
+        if st.button("🎓 Predict", width="stretch", key="nav_predict_in_d"):
             st.session_state.page = 'Predict'
     with col4:
-        if st.button("👤 User Profile", width="stretch", key="nav_profile"):
+        if st.button("👤 User Profile", width="stretch", key="nav_profile_d"):
             st.session_state.page = 'Dashboard'
     with col5:
-        if st.button("🚪 Logout", width="stretch", key="nav_logout"):
+        if st.button("🚪 Logout", width="stretch", key="nav_logout_d"):
             st.session_state.logged_in = False
             st.session_state.current_user = None
             st.session_state.page = 'Home'
             st.rerun()
+
+# 2. Mobile Navbar Header
+st.markdown("<div class='mobile-nav-marker'></div>", unsafe_allow_html=True)
+col_mob_logo, col_mob_burger = st.columns([4, 1])
+with col_mob_logo:
+    st.markdown("<h3 class='navbar-logo' style='color: #1e3a8a; font-weight: 800; margin: 0; padding-top: 5px;'>🎓 PlacePredict</h3>", unsafe_allow_html=True)
+with col_mob_burger:
+    st.button("☰", key="burger_btn", on_click=toggle_menu)
+
+# 3. Mobile Menu Items
+if st.session_state.mobile_menu_open:
+    st.markdown("<div class='mobile-menu-marker'></div>", unsafe_allow_html=True)
+    with st.container():
+        if not st.session_state.logged_in:
+            if st.button("🏠 Home", width="stretch", key="nav_home_m", on_click=close_menu):
+                st.session_state.page = 'Home'
+            if st.button("📊 EDA", width="stretch", key="nav_eda_m", on_click=close_menu):
+                st.session_state.page = 'EDA'
+            if st.button("🎓 Predict", width="stretch", key="nav_predict_m", on_click=close_menu):
+                st.session_state.page = 'Predict'
+            if st.button("🔑 Login / Sign Up", width="stretch", key="nav_login_m", on_click=close_menu):
+                st.session_state.page = 'Login'
+        else:
+            if st.button("🏠 Home", width="stretch", key="nav_home_in_m", on_click=close_menu):
+                st.session_state.page = 'Home'
+            if st.button("📊 EDA", width="stretch", key="nav_eda_in_m", on_click=close_menu):
+                st.session_state.page = 'EDA'
+            if st.button("🎓 Predict", width="stretch", key="nav_predict_in_m", on_click=close_menu):
+                st.session_state.page = 'Predict'
+            if st.button("👤 User Profile", width="stretch", key="nav_profile_m", on_click=close_menu):
+                st.session_state.page = 'Dashboard'
+            if st.button("🚪 Logout", width="stretch", key="nav_logout_m"):
+                st.session_state.logged_in = False
+                st.session_state.current_user = None
+                st.session_state.page = 'Home'
+                st.session_state.mobile_menu_open = False
+                st.rerun()
 
 st.divider()
 

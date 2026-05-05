@@ -229,46 +229,72 @@ html, body, [class*="css"] {
 }
 
 /* Mobile Responsiveness */
+@media screen and (min-width: 769px) {
+    /* Hide mobile elements on desktop */
+    div.element-container:has(.mobile-nav-marker),
+    div.element-container:has(.mobile-nav-marker) + div.element-container,
+    div.element-container:has(.mobile-menu-marker),
+    div.element-container:has(.mobile-menu-marker) + div.element-container {
+        display: none !important;
+    }
+}
+
 @media screen and (max-width: 768px) {
-    /* Navbar specific mobile styling - Target both older and newer Streamlit versions */
-    div[data-testid="stHorizontalBlock"]:has(.navbar-logo),
-    div[data-testid="stColumns"]:has(.navbar-logo) {
+    /* Hide desktop elements on mobile */
+    div.element-container:has(.desktop-nav-marker),
+    div.element-container:has(.desktop-nav-marker) + div.element-container {
+        display: none !important;
+    }
+    
+    /* Make mobile navbar layout flex row */
+    div.element-container:has(.mobile-nav-marker) + div.element-container div[data-testid="stHorizontalBlock"],
+    div.element-container:has(.mobile-nav-marker) + div.element-container div[data-testid="stColumns"] {
         display: flex !important;
         flex-direction: row !important;
-        flex-wrap: wrap !important;
         align-items: center !important;
-        justify-content: flex-end !important;
-        gap: 0.3rem !important;
+        justify-content: space-between !important;
     }
-    div[data-testid="stHorizontalBlock"]:has(.navbar-logo) > div[data-testid="column"],
-    div[data-testid="stColumns"]:has(.navbar-logo) > div[data-testid="column"] {
+    div.element-container:has(.mobile-nav-marker) + div.element-container div[data-testid="column"] {
         width: auto !important;
         flex: 0 1 auto !important;
         min-width: 0 !important;
-        padding-bottom: 0 !important;
     }
-    /* Hide the empty spacer column on mobile */
-    div[data-testid="stHorizontalBlock"]:has(.navbar-logo) > div[data-testid="column"]:nth-child(2),
-    div[data-testid="stColumns"]:has(.navbar-logo) > div[data-testid="column"]:nth-child(2) {
-        display: none !important;
-    }
-    /* Make logo take remaining space to push buttons right */
-    div[data-testid="stHorizontalBlock"]:has(.navbar-logo) > div[data-testid="column"]:first-child,
-    div[data-testid="stColumns"]:has(.navbar-logo) > div[data-testid="column"]:first-child {
+    div.element-container:has(.mobile-nav-marker) + div.element-container div[data-testid="column"]:first-child {
         flex: 1 1 auto !important;
-        text-align: left;
         margin-bottom: 0 !important;
     }
     
-    /* Make navbar buttons smaller on mobile to fit */
-    div[data-testid="stHorizontalBlock"]:has(.navbar-logo) .stButton>button,
-    div[data-testid="stColumns"]:has(.navbar-logo) .stButton>button {
+    /* Style the hamburger button */
+    div.element-container:has(.mobile-nav-marker) + div.element-container .stButton>button {
+        font-size: 1.5rem !important;
         padding: 0.2rem 0.5rem !important;
-        font-size: 0.85rem !important;
-        min-height: 0 !important;
-        line-height: 1.2 !important;
+        background: transparent !important;
+        color: #1e3a8a !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    div.element-container:has(.mobile-nav-marker) + div.element-container .stButton>button:hover {
+        transform: scale(1.1);
     }
     
+    /* Style the mobile menu items container */
+    div.element-container:has(.mobile-menu-marker) + div.element-container {
+        background-color: #f8fafc;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-top: -1rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e2e8f0;
+    }
+    
+    div.element-container:has(.mobile-menu-marker) + div.element-container .stButton>button {
+        justify-content: flex-start !important;
+        padding: 0.8rem 1rem !important;
+        font-size: 1.1rem !important;
+        margin-bottom: 0.5rem;
+    }
+
     .navbar-logo {
         font-size: 1.4rem !important;
     }
