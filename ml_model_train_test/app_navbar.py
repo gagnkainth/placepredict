@@ -48,7 +48,7 @@ if 'current_user' not in st.session_state:
 if not st.session_state.logged_in:
     col_logo, col_empty, col1, col2, col3, col4 = st.columns([2, 4, 1, 1, 1, 1.5])
     with col_logo:
-        st.markdown("<h3 style='color: #1e3a8a; font-weight: 800; margin: 0; padding-top: 5px;'>🎓 PlacePredict</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 class='navbar-logo' style='color: #1e3a8a; font-weight: 800; margin: 0; padding-top: 5px;'>🎓 PlacePredict</h3>", unsafe_allow_html=True)
     with col1:
         if st.button("🏠 Home", width="stretch", key="nav_home"):
             st.session_state.page = 'Home'
@@ -64,7 +64,7 @@ if not st.session_state.logged_in:
 else:
     col_logo, col_empty, col1, col2, col3, col4, col5 = st.columns([2, 3, 1, 1, 1, 1.5, 1])
     with col_logo:
-        st.markdown("<h3 style='color: #1e3a8a; font-weight: 800; margin: 0; padding-top: 5px;'>🎓 PlacePredict</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 class='navbar-logo' style='color: #1e3a8a; font-weight: 800; margin: 0; padding-top: 5px;'>🎓 PlacePredict</h3>", unsafe_allow_html=True)
     with col1:
         if st.button("🏠 Home", width="stretch", key="nav_home_in"):
             st.session_state.page = 'Home'

@@ -176,14 +176,15 @@ html, body, [class*="css"] {
     border-radius: 8px;
     font-weight: 600;
     transition: all 0.3s ease;
-    border: 1px solid #3b82f6 !important;
-    color: #3b82f6 !important;
-    background-color: transparent !important;
+    border: 1px solid #bfdbfe !important; /* light blue border */
+    color: #1e40af !important; /* dark blue text */
+    background-color: #eff6ff !important; /* light blue background */
 }
 .stButton>button:hover {
     transform: translateY(-2px) scale(1.02);
     background-color: #3b82f6 !important;
     color: white !important;
+    border-color: #3b82f6 !important;
     box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
 }
 .stButton>button:active {
@@ -229,12 +230,46 @@ html, body, [class*="css"] {
 
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
+    /* Navbar specific mobile styling */
+    div[data-testid="stHorizontalBlock"]:has(.navbar-logo) {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 0.5rem;
+    }
+    div[data-testid="stHorizontalBlock"]:has(.navbar-logo) > div[data-testid="column"] {
+        width: auto !important;
+        flex: 0 1 auto !important;
+        min-width: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    /* Hide the empty spacer column on mobile */
+    div[data-testid="stHorizontalBlock"]:has(.navbar-logo) > div[data-testid="column"]:nth-child(2) {
+        display: none !important;
+    }
+    /* Make logo centered on mobile */
+    div[data-testid="stHorizontalBlock"]:has(.navbar-logo) > div[data-testid="column"]:first-child {
+        width: 100% !important;
+        flex: 0 0 100% !important;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Hero section order: Image on top, Text below */
+    div[data-testid="stHorizontalBlock"]:has(.hero-text) {
+        display: flex;
+        flex-direction: column-reverse !important;
+    }
+
     .hero-text {
         font-size: 2.2rem !important;
+        text-align: center !important;
     }
     .hero-subtext {
         font-size: 1rem !important;
         margin-bottom: 1.5rem !important;
+        text-align: center !important;
     }
     .feature-box {
         height: auto !important;
