@@ -111,8 +111,12 @@ if st.session_state.page == 'Home':
         st.write("""
         ### Why Placement Prediction Matters 🎯
         
-        Understanding your employability before interview season begins is crucial. 
-        Get a realistic assessment of your placement chances with our advanced SVM model.
+        In today's competitive job market, understanding your employability before interview season begins is crucial. 
+        Our AI-driven placement prediction system analyzes your academic performance, technical skills, and soft skills 
+        to provide a realistic assessment of your placement chances. 
+
+        By identifying your strengths and weak areas early, you can take targeted steps to improve your profile, 
+        focus your preparation, and ultimately secure your dream job at your favorite company.
         """)
         
         col_btn1, col_btn2 = st.columns(2)
@@ -129,9 +133,9 @@ if st.session_state.page == 'Home':
         hero_jpg = os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "hero.jpg")
         hero_png = os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "hero.png")
         if os.path.exists(hero_jpg):
-            st.image(hero_jpg, use_column_width='always')
+            st.image(hero_jpg, use_container_width=True)
         elif os.path.exists(hero_png):
-            st.image(hero_png, use_column_width='always')
+            st.image(hero_png, use_container_width=True)
             
     st.divider()
     
