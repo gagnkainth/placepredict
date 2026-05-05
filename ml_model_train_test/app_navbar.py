@@ -46,7 +46,9 @@ if 'current_user' not in st.session_state:
 # NAVBAR NAVIGATION
 # ============================================
 if not st.session_state.logged_in:
-    col1, col2, col3, col4 = st.columns(4)
+    col_logo, col_empty, col1, col2, col3, col4 = st.columns([2, 4, 1, 1, 1, 1.5])
+    with col_logo:
+        st.markdown("<h3 style='color: #1e3a8a; font-weight: 800; margin: 0; padding-top: 5px;'>🎓 PlacePredict</h3>", unsafe_allow_html=True)
     with col1:
         if st.button("🏠 Home", width="stretch", key="nav_home"):
             st.session_state.page = 'Home'
@@ -60,7 +62,9 @@ if not st.session_state.logged_in:
         if st.button("🔑 Login / Sign Up", width="stretch", key="nav_login_signup"):
             st.session_state.page = 'Login'
 else:
-    col1, col2, col3, col4, col5 = st.columns(5)
+    col_logo, col_empty, col1, col2, col3, col4, col5 = st.columns([2, 3, 1, 1, 1, 1.5, 1])
+    with col_logo:
+        st.markdown("<h3 style='color: #1e3a8a; font-weight: 800; margin: 0; padding-top: 5px;'>🎓 PlacePredict</h3>", unsafe_allow_html=True)
     with col1:
         if st.button("🏠 Home", width="stretch", key="nav_home_in"):
             st.session_state.page = 'Home'
@@ -86,33 +90,34 @@ st.divider()
 # PAGE: HOME
 # ============================================
 if st.session_state.page == 'Home':
-    st.markdown('<div class="hero-text" style="text-align: center;">🎓 PlacePredict</div>', unsafe_allow_html=True)
-    st.markdown('<div class="hero-subtext" style="text-align: center;">AI-Powered Placement Prediction & Analysis</div>', unsafe_allow_html=True)
+    st.write("") # Top spacing
     
-    # Add Hero Image
-    hero_jpg = os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "hero.jpg")
-    hero_png = os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "hero.png")
+    col_text, col_img = st.columns([1.2, 1], gap="large")
     
-    img_col1, img_col2, img_col3 = st.columns([1, 2, 1])
-    with img_col2:
+    with col_text:
+        st.markdown('<div class="hero-text" style="text-align: left; margin-bottom: 0;">🎓 PlacePredict</div>', unsafe_allow_html=True)
+        st.markdown('<div class="hero-subtext" style="text-align: left; margin-top: 0.5rem; margin-bottom: 2rem;">AI-Powered Placement Prediction & Analysis</div>', unsafe_allow_html=True)
+        
+        st.write("""
+        ### Why Placement Prediction Matters 🎯
+        
+        In today's competitive job market, understanding your employability before interview season begins is crucial. 
+        Our AI-driven placement prediction system analyzes your academic performance, technical skills, and soft skills 
+        to provide a realistic assessment of your placement chances. By identifying your strengths and weak areas early, 
+        you can take targeted steps to improve your profile, focus your preparation, and ultimately secure your dream job.
+        """)
+        
+    with col_img:
+        # Add Hero Image
+        hero_jpg = os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "hero.jpg")
+        hero_png = os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "hero.png")
         if os.path.exists(hero_jpg):
             st.image(hero_jpg, width='stretch')
         elif os.path.exists(hero_png):
             st.image(hero_png, width='stretch')
         else:
             st.info("💡 To display the hero image: Place your image inside the `images` folder and name it `hero.jpg` or `hero.png`.")
-    
-    st.divider()
-
-    st.write("""
-    ### Why Placement Prediction Matters 🎯
-    
-    In today's competitive job market, understanding your employability before interview season begins is crucial. 
-    Our AI-driven placement prediction system analyzes your academic performance, technical skills, and soft skills 
-    to provide a realistic assessment of your placement chances. By identifying your strengths and weak areas early, 
-    you can take targeted steps to improve your profile, focus your preparation, and ultimately secure your dream job.
-    """)
-    
+            
     st.divider()
     
     st.subheader("⚡ Quick Insights")
