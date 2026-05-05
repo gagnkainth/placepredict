@@ -141,31 +141,43 @@ st.divider()
 if st.session_state.page == 'Home':
     st.write("") # Top spacing
     
-    col_text, col_img = st.columns([1.2, 1], gap="large")
+    # Hero Title like Gagan's DevStudio
+    st.markdown("""
+        <div style="text-align: center; margin-top: 2rem; margin-bottom: 1.5rem;">
+            <h1 style="font-size: 3.5rem; font-weight: 800; line-height: 1.1; color: #0f172a; margin-bottom: 1rem;" class="mobile-hero-title">
+                AI-Powered Placement<br>Predictions that are<br><span style="color: #0066ff;">accurate</span>
+            </h1>
+            <p style="font-size: 1.1rem; color: #475569; max-width: 600px; margin: 0 auto 2rem auto; line-height: 1.6;" class="mobile-hero-subtext">
+                Understanding your employability before interview season begins is crucial. 
+                Get a realistic assessment of your placement chances with our advanced SVM model.
+            </p>
+        </div>
+    """, unsafe_allow_html=True)
     
-    with col_text:
-        st.markdown('<div class="hero-text" style="text-align: left; margin-bottom: 0;">🎓 PlacePredict</div>', unsafe_allow_html=True)
-        st.markdown('<div class="hero-subtext" style="text-align: left; margin-top: 0.5rem; margin-bottom: 2rem;">AI-Powered Placement Prediction & Analysis</div>', unsafe_allow_html=True)
-        
-        st.write("""
-        ### Why Placement Prediction Matters 🎯
-        
-        In today's competitive job market, understanding your employability before interview season begins is crucial. 
-        Our AI-driven placement prediction system analyzes your academic performance, technical skills, and soft skills 
-        to provide a realistic assessment of your placement chances. By identifying your strengths and weak areas early, 
-        you can take targeted steps to improve your profile, focus your preparation, and ultimately secure your dream job.
-        """)
-        
-    with col_img:
-        # Add Hero Image
+    st.markdown("<div class='hero-buttons'></div>", unsafe_allow_html=True)
+    # Hero Buttons (Centered, like reference)
+    btn_col1, btn_col2, btn_col3, btn_col4 = st.columns([1, 1.5, 1.5, 1])
+    with btn_col2:
+        if st.button("Explore Data 📊", width='stretch', key="btn_eda_hero"):
+            st.session_state.page = 'EDA'
+            st.rerun()
+    with btn_col3:
+        if st.button("Predict Now 🎓", width='stretch', type="primary", key="btn_predict_hero"):
+            st.session_state.page = 'Predict'
+            st.rerun()
+            
+    st.write("")
+    st.write("")
+    
+    # Hero Image below text (like reference map)
+    img_col1, img_col2, img_col3 = st.columns([1, 3, 1])
+    with img_col2:
         hero_jpg = os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "hero.jpg")
         hero_png = os.path.join(os.path.dirname(os.path.abspath(__file__)), "images", "hero.png")
         if os.path.exists(hero_jpg):
-            st.image(hero_jpg, width='stretch')
+            st.image(hero_jpg, use_column_width='always')
         elif os.path.exists(hero_png):
-            st.image(hero_png, width='stretch')
-        else:
-            st.info("💡 To display the hero image: Place your image inside the `images` folder and name it `hero.jpg` or `hero.png`.")
+            st.image(hero_png, use_column_width='always')
             
     st.divider()
     

@@ -264,28 +264,27 @@ html, body, [class*="css"] {
         margin-bottom: 0 !important;
     }
     
-    /* Style the hamburger button */
+    /* Style the hamburger button (Transparent like Gagan DevStudio) */
     div.element-container:has(.mobile-nav-marker) + div.element-container .stButton>button {
-        font-size: 1.5rem !important;
-        padding: 0.2rem 0.5rem !important;
+        font-size: 2.2rem !important;
+        padding: 0 !important;
         background: transparent !important;
-        color: #1e3a8a !important;
+        color: #0f172a !important;
         border: none !important;
         box-shadow: none !important;
-    }
-    div.element-container:has(.mobile-nav-marker) + div.element-container .stButton>button:hover {
-        transform: scale(1.1);
+        min-height: 0 !important;
+        width: auto !important;
     }
     
     /* Style the mobile menu items container */
     div.element-container:has(.mobile-menu-marker) + div.element-container {
-        background-color: #f8fafc;
-        border-radius: 8px;
+        background-color: #ffffff;
+        border-radius: 12px;
         padding: 1rem;
-        margin-top: -1rem;
-        margin-bottom: 1rem;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        border: 1px solid #e2e8f0;
+        margin-top: -0.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        border: 1px solid #f1f5f9;
     }
     
     div.element-container:has(.mobile-menu-marker) + div.element-container .stButton>button {
@@ -293,37 +292,49 @@ html, body, [class*="css"] {
         padding: 0.8rem 1rem !important;
         font-size: 1.1rem !important;
         margin-bottom: 0.5rem;
+        background: #f8fafc !important;
+        border-radius: 8px !important;
     }
 
-    .navbar-logo {
-        font-size: 1.4rem !important;
+    .mobile-hero-title {
+        font-size: 2.4rem !important;
     }
-
-    .hero-text {
-        font-size: 2.2rem !important;
-        text-align: center !important;
-    }
-    .hero-subtext {
+    .mobile-hero-subtext {
         font-size: 1rem !important;
-        margin-bottom: 1.5rem !important;
-        text-align: center !important;
     }
-    .feature-box {
-        height: auto !important;
-        min-height: auto !important;
-        padding: 1.5rem !important;
+    
+    /* Stack hero buttons on mobile */
+    div.element-container:has(.hero-buttons) + div.element-container div[data-testid="stColumns"] {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.8rem !important;
     }
-    .metric-box {
-        height: auto !important;
-        padding: 1rem !important;
-    }
-    .metric-value {
-        font-size: 2rem !important;
-    }
-    .signup-form {
-        padding: 1.5rem !important;
-    }
-    .eda-step-title {
-        font-size: 1.1rem !important;
+    div.element-container:has(.hero-buttons) + div.element-container div[data-testid="column"] {
+        width: 100% !important;
     }
 }
+
+/* Style the Hero Buttons as pills */
+div.element-container:has(.hero-buttons) + div.element-container .stButton>button {
+    border-radius: 50px !important;
+    padding: 0.8rem 2rem !important;
+    font-weight: 700 !important;
+    transition: all 0.3s ease !important;
+    text-transform: none !important;
+}
+
+/* Primary Hero Button (Solid Blue) */
+div.element-container:has(.hero-buttons) + div.element-container button[data-testid="baseButton-primary"] {
+    background-color: #0066ff !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 4px 14px 0 rgba(0, 118, 255, 0.39) !important;
+}
+
+/* Secondary Hero Button (White with border) */
+div.element-container:has(.hero-buttons) + div.element-container button[data-testid="baseButton-secondary"] {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    border: 1px solid #cbd5e1 !important;
+}
+
