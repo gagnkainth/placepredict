@@ -230,36 +230,47 @@ html, body, [class*="css"] {
 
 /* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
-    /* Navbar specific mobile styling */
-    div[data-testid="stHorizontalBlock"]:has(.navbar-logo) {
+    /* Navbar specific mobile styling - Target both older and newer Streamlit versions */
+    div[data-testid="stHorizontalBlock"]:has(.navbar-logo),
+    div[data-testid="stColumns"]:has(.navbar-logo) {
+        display: flex !important;
         flex-direction: row !important;
         flex-wrap: wrap !important;
         align-items: center !important;
-        justify-content: center !important;
-        gap: 0.5rem;
+        justify-content: flex-end !important;
+        gap: 0.3rem !important;
     }
-    div[data-testid="stHorizontalBlock"]:has(.navbar-logo) > div[data-testid="column"] {
+    div[data-testid="stHorizontalBlock"]:has(.navbar-logo) > div[data-testid="column"],
+    div[data-testid="stColumns"]:has(.navbar-logo) > div[data-testid="column"] {
         width: auto !important;
         flex: 0 1 auto !important;
         min-width: 0 !important;
         padding-bottom: 0 !important;
     }
     /* Hide the empty spacer column on mobile */
-    div[data-testid="stHorizontalBlock"]:has(.navbar-logo) > div[data-testid="column"]:nth-child(2) {
+    div[data-testid="stHorizontalBlock"]:has(.navbar-logo) > div[data-testid="column"]:nth-child(2),
+    div[data-testid="stColumns"]:has(.navbar-logo) > div[data-testid="column"]:nth-child(2) {
         display: none !important;
     }
-    /* Make logo centered on mobile */
-    div[data-testid="stHorizontalBlock"]:has(.navbar-logo) > div[data-testid="column"]:first-child {
-        width: 100% !important;
-        flex: 0 0 100% !important;
-        text-align: center;
-        margin-bottom: 0.5rem;
+    /* Make logo take remaining space to push buttons right */
+    div[data-testid="stHorizontalBlock"]:has(.navbar-logo) > div[data-testid="column"]:first-child,
+    div[data-testid="stColumns"]:has(.navbar-logo) > div[data-testid="column"]:first-child {
+        flex: 1 1 auto !important;
+        text-align: left;
+        margin-bottom: 0 !important;
     }
     
-    /* Hero section order: Image on top, Text below */
-    div[data-testid="stHorizontalBlock"]:has(.hero-text) {
-        display: flex;
-        flex-direction: column-reverse !important;
+    /* Make navbar buttons smaller on mobile to fit */
+    div[data-testid="stHorizontalBlock"]:has(.navbar-logo) .stButton>button,
+    div[data-testid="stColumns"]:has(.navbar-logo) .stButton>button {
+        padding: 0.2rem 0.5rem !important;
+        font-size: 0.85rem !important;
+        min-height: 0 !important;
+        line-height: 1.2 !important;
+    }
+    
+    .navbar-logo {
+        font-size: 1.4rem !important;
     }
 
     .hero-text {
