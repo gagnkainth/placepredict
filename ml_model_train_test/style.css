@@ -6,7 +6,9 @@
 /* Modern Premium Aesthetics */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
-html, body, [class*="css"] {
+html,
+body,
+[class*="css"] {
     font-family: 'Inter', sans-serif;
 }
 
@@ -103,12 +105,14 @@ html, body, [class*="css"] {
     flex-direction: column;
     justify-content: center;
 }
+
 .metric-box:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.2);
     border-color: #3b82f6;
     background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
 }
+
 .metric-value {
     font-size: 3rem;
     font-weight: 800;
@@ -117,6 +121,7 @@ html, body, [class*="css"] {
     -webkit-text-fill-color: transparent;
     margin: 0;
 }
+
 .metric-label {
     font-size: 1rem;
     color: #475569;
@@ -135,6 +140,7 @@ html, body, [class*="css"] {
     padding: 1.5rem;
     margin-top: 1rem;
 }
+
 .prediction-success h3 {
     color: #10b981;
     margin-top: 0;
@@ -148,6 +154,7 @@ html, body, [class*="css"] {
     padding: 1.5rem;
     margin-top: 1rem;
 }
+
 .prediction-danger h3 {
     color: #ef4444;
     margin-top: 0;
@@ -178,10 +185,14 @@ html, body, [class*="css"] {
     border-radius: 8px;
     font-weight: 600;
     transition: all 0.3s ease;
-    border: 1px solid #bfdbfe !important; /* light blue border */
-    color: #1e40af !important; /* dark blue text */
-    background-color: #eff6ff !important; /* light blue background */
+    border: 1px solid #bfdbfe !important;
+    /* light blue border */
+    color: #1e40af !important;
+    /* dark blue text */
+    background-color: #eff6ff !important;
+    /* light blue background */
 }
+
 .stButton>button:hover {
     transform: translateY(-2px) scale(1.02);
     background-color: #3b82f6 !important;
@@ -189,6 +200,7 @@ html, body, [class*="css"] {
     border-color: #3b82f6 !important;
     box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
 }
+
 .stButton>button:active {
     transform: translateY(1px) scale(0.98);
     box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
@@ -235,27 +247,32 @@ html, body, [class*="css"] {
     .hero-text {
         font-size: 2.2rem !important;
     }
+
     .hero-subtext {
         font-size: 1rem !important;
         margin-bottom: 1.5rem !important;
     }
+
     .feature-box {
         height: auto !important;
         min-height: auto !important;
         padding: 1.5rem !important;
     }
+
     .metric-box {
         height: auto !important;
         padding: 1rem !important;
     }
+
     .metric-value {
         font-size: 2rem !important;
     }
+
     .signup-form {
         padding: 1.5rem !important;
     }
+
     .eda-step-title {
         font-size: 1.1rem !important;
     }
 }
-

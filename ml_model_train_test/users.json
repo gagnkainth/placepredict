@@ -33,5 +33,40 @@
                 "confidence": 0.4403492222496114
             }
         ]
+    },
+    "imdeepgagan99@gmail.com": {
+        "first_name": "Gagan",
+        "last_name": "deep",
+        "email": "imdeepgagan99@gmail.com",
+        "phone": "+917719603961",
+        "college": "GNA",
+        "branch": "CSE",
+        "year": "3rd Year",
+        "cgpa": 8.6,
+        "password": "661efe4b42da24d7064d0fd09d5a7aeb6f0ce296673fc2bfd0330110ca405e22",
+        "predictions": [
+            {
+                "timestamp": "2026-05-30 09:49:11",
+                "input_data": {
+                    "CGPA": 8.6,
+                    "10th Percentage": "80\u201390%",
+                    "12th / Diploma Percentage": "80\u201390%",
+                    "Any Active Backlogs?": "No",
+                    "Coding Skill Level": "Advanced",
+                    "Data Structures & Algorithms Knowledge": "Medium",
+                    "Aptitude / Logical Reasoning Skill": "Medium",
+                    "Number of Internships Completed": 3,
+                    "Number of Academic / Personal Projects": 3,
+                    "Hackathons / Coding Competitions Participated": "Yes",
+                    "Technical Certifications Completed": "Yes",
+                    "Communication Skills": 4,
+                    "Confidence Level for Interviews": 4,
+                    "Programming Languages Known": 3,
+                    "Willing to Improve Skills Based on Feedback?": "Yes"
+                },
+                "prediction": 1,
+                "confidence": 0.5897738873460645
+            }
+        ]
     }
 }
